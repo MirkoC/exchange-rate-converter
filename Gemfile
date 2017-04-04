@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'foreman'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
 end
