@@ -7,6 +7,6 @@ class ExchangeRateConverter
     er = ExchangeRate.find_closest_by_date(date)
     raise ConversionImpossible, 'Cannot exchange for requested date!!' unless er
 
-    er.rate * amount
+    amount/er.rate.to_f
   end
 end

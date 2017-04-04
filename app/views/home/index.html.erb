@@ -1,0 +1,22 @@
+<%= form_for :exchange_rate, url: root_path, remote: true do |f| %>
+  <div class="entry-section mt4">
+    <%= f.label :select_date %>
+    <%= f.text_field :date, required: true %>  
+  </div>
+  
+  <div class="entry-section mt4">
+    <%= f.label :enter_amount %>
+    <%= f.text_field :amount, required: true %>
+  </div>
+
+  <div class="entry-section mt4">
+    <%= f.submit :convert %>
+  </div>
+
+
+<% end %>
+
+
+<div class="entry-section mt4 hide result">
+  Tu neš piše
+</div>

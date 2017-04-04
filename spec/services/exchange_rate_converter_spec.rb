@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe ExchangeRateConvert do
+RSpec.describe ExchangeRateConverter do
   describe :convert do
     let!(:stubbed_data) { ECB.stub(:string_data) { File.open('spec/lib/data.csv', 'rb').read } }
     let!(:saved_data) { ECB.save_exchange_rate_data }
     it 'converts dolars to euros' do
       er = ExchangeRate.second
       converted_value = ExchangeRateConverter.convert(120, er.date)
-      expect(converted_value).to eq(er.rate * 120)
+      expect(converted_value).to eq(120 / er.rate.to_f)
     end
 
     it 'cannot convert non numeric amounts' do
